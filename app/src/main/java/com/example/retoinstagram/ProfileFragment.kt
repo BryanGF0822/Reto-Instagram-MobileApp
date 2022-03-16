@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class ProfileFrangment : Fragment() {
+class ProfileFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,7 +18,7 @@ class ProfileFrangment : Fragment() {
 
     companion object {
 
-        fun newInstance() = ProfileFrangment()
+        fun newInstance() = ProfileFragment()
 
     }
 }
