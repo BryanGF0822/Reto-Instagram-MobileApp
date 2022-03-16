@@ -15,6 +15,10 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        homebinding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = homebinding.root
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
