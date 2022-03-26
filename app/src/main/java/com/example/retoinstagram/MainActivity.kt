@@ -3,29 +3,31 @@ package com.example.retoinstagram
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.retoinstagram.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navigator:BottomNavigationView
+    //private lateinit var navigator:BottomNavigationView
     private lateinit var newHomeFragment: HomeFragment
     private lateinit var newPostFragment: PostFragment
     private lateinit var newProfileFragment: ProfileFragment
+    private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         newHomeFragment = HomeFragment.newInstance()
         newPostFragment = PostFragment.newInstance()
         newProfileFragment = ProfileFragment.newInstance()
 
-        navigator = findViewById(R.id.navigator)
-
         showFragment(newHomeFragment)
 
-        navigator.setOnItemSelectedListener { menuItem->
+        binding.navigator.setOnItemSelectedListener { menuItem->
             if(menuItem.itemId == R.id.homeItem){
                 showFragment(newHomeFragment)
             }else if(menuItem.itemId == R.id.searchItem){
