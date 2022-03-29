@@ -1,51 +1,23 @@
 package com.example.retoinstagram
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.example.retoinstagram.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
-    //private lateinit var navigator:BottomNavigationView
-    private lateinit var newHomeFragment: HomeFragment
-    private lateinit var newPostFragment: PostFragment
-    private lateinit var newProfileFragment: ProfileFragment
-    private lateinit var binding: ActivityMainBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(R.layout.activity_main)
 
-        newHomeFragment = HomeFragment.newInstance()
-        newPostFragment = PostFragment.newInstance()
-        newProfileFragment = ProfileFragment.newInstance()
 
-        showFragment(newHomeFragment)
+        navigacionBTN.setOnClickListener{
 
-        binding.navigator.setOnItemSelectedListener { menuItem->
-            if(menuItem.itemId == R.id.homeItem){
-                showFragment(newHomeFragment)
-            }else if(menuItem.itemId == R.id.searchItem){
-                //showFragment()
-            }else if (menuItem.itemId == R.id.postItem){
-                showFragment(newPostFragment)
-            }else if (menuItem.itemId == R.id.marketItem){
-                //showFragment()
-            }else if (menuItem.itemId == R.id.profileItem){
-                showFragment(newProfileFragment)
-            }
-            true
+            val intent = Intent(this,NavigationScreen::class.java)
+            startActivity(intent)
         }
-    }
 
-    fun showFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainer, fragment)
-        transaction.commit()
     }
 }
