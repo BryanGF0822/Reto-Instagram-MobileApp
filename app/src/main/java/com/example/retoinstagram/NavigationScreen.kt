@@ -1,10 +1,15 @@
 package com.example.retoinstagram
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.retoinstagram.databinding.ActivityNavigationScreenBinding
 import com.example.retoinstagram.databinding.ActivityNavigationScreenBinding.*
+import kotlinx.android.synthetic.main.activity_navigation_screen.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class NavigationScreen : AppCompatActivity() {
 
@@ -13,6 +18,8 @@ class NavigationScreen : AppCompatActivity() {
     private lateinit var newProfileFragment: ProfileFragment
     private lateinit var binding: ActivityNavigationScreenBinding
 
+    private lateinit var preferences: SharedPreferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -20,6 +27,9 @@ class NavigationScreen : AppCompatActivity() {
         binding = inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        preferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+
 
         newHomeFragment = HomeFragment.newInstance()
         newPostFragment = PostFragment.newInstance()
@@ -41,6 +51,17 @@ class NavigationScreen : AppCompatActivity() {
             }
             true
         }
+
+        logOutBTN2.setOnClickListener{
+            val editor: SharedPreferences.Editor = preferences.edit()
+            editor.clear()
+            editor.apply()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 
     fun showFragment(fragment: Fragment){
