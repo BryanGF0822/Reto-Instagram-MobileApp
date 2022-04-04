@@ -7,20 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class ProfileFragment : Fragment() {
+class MarketFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
-
+        return inflater.inflate(R.layout.fragment_market, container, false)
     }
 
     companion object {
 
-        fun newInstance() = ProfileFragment()
+        fun newInstance() = MarketFragment()
 
     }
 }

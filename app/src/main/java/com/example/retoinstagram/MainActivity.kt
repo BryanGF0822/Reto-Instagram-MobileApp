@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             val password: String = passwordET.text.toString()
             val rememberCheck: Boolean = rememberCheckBox.isChecked
 
+
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
             editor.putString("NAME", userName)
             editor.putString("PASSWORD", password)
