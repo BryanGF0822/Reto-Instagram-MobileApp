@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.retoinstagram.databinding.ActivityNavigationScreenBinding
@@ -24,7 +25,7 @@ class NavigationScreen : AppCompatActivity() {
 
     private lateinit var preferences: SharedPreferences
 
-    private lateinit var toolbar:Toolbar
+    //private lateinit var toolbar:Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -32,6 +33,7 @@ class NavigationScreen : AppCompatActivity() {
         binding = inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        setSupportActionBar(toolbar as Toolbar?)
 
         preferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
 
@@ -57,18 +59,6 @@ class NavigationScreen : AppCompatActivity() {
             }
             true
         }
-
-        logOutBTN2.setOnClickListener{
-            val editor: SharedPreferences.Editor = preferences.edit()
-            editor.clear()
-            editor.apply()
-
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -79,6 +69,20 @@ class NavigationScreen : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+        when (item.itemId) {
+            R.id.logout -> {
+
+                val editor: SharedPreferences.Editor = preferences.edit()
+                editor.clear()
+                editor.apply()
+
+                Toast.makeText(this, "Good Bye!", Toast.LENGTH_LONG).show()
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
         return super.onOptionsItemSelected(item)
     }
 
