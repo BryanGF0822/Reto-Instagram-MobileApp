@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    //Se realiza la declaracion del sharepreferences
     lateinit var sharedPreferences: SharedPreferences
     var isRemembered = false
 
@@ -31,19 +32,41 @@ class MainActivity : AppCompatActivity() {
             val userName: String = userNameET.text.toString()
             val password: String = passwordET.text.toString()
             val rememberCheck: Boolean = rememberCheckBox.isChecked
-
-
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
-            editor.putString("NAME", userName)
-            editor.putString("PASSWORD", password)
-            editor.putBoolean("CHECKBOX", rememberCheck)
-            editor.apply()
 
-            Toast.makeText(this, "Information saved!", Toast.LENGTH_LONG).show()
+            if ((userName == "alfa@gmail.com" || userName == "beta@gmail.com") && password == "aplicacionesmoviles"){
 
-            val intent = Intent(this, NavigationScreen::class.java)
-            startActivity(intent)
-            finish()
+                if (userName == "alfa@gmail.com"){
+
+                    editor.putString("NAME_OF_ALFA", userName)
+                    editor.putString("PASSWORD_OF_ALFA", password)
+                    editor.putBoolean("IS_ALFA", true)
+                    editor.putBoolean("CHECKBOX", rememberCheck)
+                    editor.apply()
+
+                    Toast.makeText(this, "Information saved!", Toast.LENGTH_LONG).show()
+
+                    val intent = Intent(this, NavigationScreen::class.java)
+                    startActivity(intent)
+                    finish()
+                }else{
+                    editor.putString("NAME_OF_BETA", userName)
+                    editor.putString("PASSWORD_OF_BETA", password)
+                    editor.putBoolean("IS_BETA", true)
+                    editor.putBoolean("CHECKBOX", rememberCheck)
+                    editor.apply()
+
+                    Toast.makeText(this, "Information saved!", Toast.LENGTH_LONG).show()
+
+                    val intent = Intent(this, NavigationScreen::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }else{
+
+                Toast.makeText(this, "Usuario o contraseña incorrecto!", Toast.LENGTH_LONG).show()
+            }
+
         }
 
     }

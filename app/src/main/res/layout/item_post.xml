@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/imgDescription"
+        android:id="@+id/imgDescriptionTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Hola"
@@ -22,11 +22,11 @@
         app:layout_constraintStart_toEndOf="@+id/imgPost"/>
 
     <TextView
-        android:id="@+id/imgCityDescription"
+        android:id="@+id/imgCityDescriptionTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Hola"
-        app:layout_constraintTop_toBottomOf="@+id/imgDescription"
+        app:layout_constraintTop_toBottomOf="@+id/imgDescriptionTv"
         app:layout_constraintStart_toEndOf="@+id/imgPost"/>
 
 

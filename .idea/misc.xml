@@ -5,11 +5,11 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3013046264648437" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.34791666666666665" />
-        <entry key="app/src/main/res/layout/activity_navigation_screen.xml" value="0.2010909469039352" />
+        <entry key="app/src/main/res/layout/activity_navigation_screen.xml" value="0.30419916223596644" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23527761265851452" />
         <entry key="app/src/main/res/layout/fragment_market.xml" value="0.3338541666666667" />
-        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.22644927536231885" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2513027688731318" />
+        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.42627074753028765" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.4180776389733468" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.3234664916992187" />

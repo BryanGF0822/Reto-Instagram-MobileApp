@@ -34,6 +34,7 @@ class NavigationScreen : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         setSupportActionBar(toolbar as Toolbar?)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         preferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
 
